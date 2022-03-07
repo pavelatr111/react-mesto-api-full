@@ -1,0 +1,31 @@
+.profile__avatar-edit {
+    transition-property: opacity;
+    transition-duration: 0.5s;
+
+    background-color: rgba(0,0,0,0);
+    background-image: url(../../../images/editProfileAvatar.svg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+
+    border: none;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: calc(50% - 13px);
+    left: calc(50% - 13px);
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .profile__avatar-edit {
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);     
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__avatar-edit {
+        top: calc(50% - 13px);
+        left: calc(50% - 13px);
+    }
+    
+}

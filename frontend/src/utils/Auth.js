@@ -1,0 +1,76 @@
+
+
+
+function response(res) {
+    return res.ok ? res.json() : Promise.reject(`Ошибка: ${res}`);
+}
+
+
+
+class Auth {
+    constructor({ url }) {
+        this._url = url;
+    }
+
+    register(mail, password) {
+        return fetch(`${this._url}/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                password: password,
+                email: mail
+
+            })
+        })
+            .then(response)
+    }
+
+    login(mail, password) {
+        return fetch(`${this._url}/signin`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                password: password,
+                email: mail
+            })
+        }).then(response)
+    }
+
+    checkToken(jwt) {
+        return fetch(`${this._url}/users/me`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${jwt}`
+            }
+        })
+        .then(response)
+    }
+}
+
+const auth = new Auth({
+    url: "https://auth.nomoreparties.co",
+})
+
+export default auth
+
+// export const register = async (email, password) => {
+//   try {
+//         const response = await fetch(`${ BASE_URL } / signup`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(email, password )
+//         });
+//         const res = await response.json();
+//         return res;
+//     } catch (err) {
+//         return console.log(err);
+//     }
+// };
+

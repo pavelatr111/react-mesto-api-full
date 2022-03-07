@@ -1,0 +1,4 @@
+.popup__form-input_error {
+    border-bottom: 1px solid #FF0000;
+    color: #C4C4C4;
+}

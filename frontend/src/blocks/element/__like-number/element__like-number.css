@@ -1,0 +1,13 @@
+.element__like-number {
+    width: 10px;
+    height: 13px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    align-content: center;
+    color: #000000;
+    margin-top: 3px;
+    margin: auto;
+}

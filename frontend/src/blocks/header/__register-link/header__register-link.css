@@ -1,0 +1,15 @@
+.header__register-link {
+
+font-family: "Inter", "Arial", sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 122%;
+text-align: right;
+color: #FFFFFF;
+text-decoration: none;
+}
+
+.header__register-link:hover {
+    opacity: 0.8;
+}

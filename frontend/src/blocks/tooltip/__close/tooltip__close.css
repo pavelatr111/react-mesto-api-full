@@ -1,0 +1,16 @@
+.tooltip__close {
+    background-image: url("../../../images/CloseIcon.svg");
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    cursor: pointer;
+    padding: 0;
+  }

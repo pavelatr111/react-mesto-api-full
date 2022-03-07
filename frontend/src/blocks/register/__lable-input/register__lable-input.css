@@ -1,0 +1,11 @@
+.register__lable-input {
+    margin-bottom: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  
+  .register__lable-input:last-of-type {
+    margin-bottom: 0px;
+  }

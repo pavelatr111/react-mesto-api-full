@@ -1,0 +1,21 @@
+.element {
+    position: relative;
+    max-width: 282px;
+    max-height: 361px;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    
+}
+/* @media screen and (max-width: 768px) {
+    .element {
+        width: 85%;
+    }
+} */
+
+@media screen and (max-width: 320px) {
+    .element {
+        width: 100%;
+        max-width: 282px;
+    }
+}

@@ -1,0 +1,39 @@
+.popup__close {
+    background-image: url('../../../images/CloseIcon.svg');
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    cursor: pointer;
+    padding: 0;
+    
+}
+
+.popup__close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+    .popup__close {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__close {
+        padding: 0;
+        right: 7px;
+        top: -42px;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        /* я проверил на perfectpixel и все ароде совпадает.*/
+    }
+}

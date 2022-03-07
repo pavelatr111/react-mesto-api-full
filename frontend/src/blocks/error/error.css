@@ -1,0 +1,14 @@
+.error {
+    display: flex;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    opacity: 1;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    z-index: 1;
+}

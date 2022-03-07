@@ -1,0 +1,15 @@
+.profile__avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: inline;
+    margin-right: 30px;
+}
+
+.profile__avatar-container:hover {
+    cursor: pointer;
+}
+
+.profile__avatar-container:hover .profile__avatar {
+    opacity: 0.2;
+}

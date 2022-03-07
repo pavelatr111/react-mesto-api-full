@@ -1,0 +1,29 @@
+.profile__avatar {
+    width: 120px;
+    height: 120px;
+    background-color: transparent;
+    border-radius: 60px;
+    padding: 0;
+    margin: 0;
+
+}
+
+.profile__avatar-container:hover .profile__avatar-edit {
+    display: inline;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .profile__avatar {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+   .profile__avatar {
+       margin-bottom: 26px;
+       width: 120px;
+       height: 120px;
+   }
+}

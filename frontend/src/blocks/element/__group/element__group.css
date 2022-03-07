@@ -1,0 +1,15 @@
+.element__group {
+    max-width: 246px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: content-box;
+    margin: 25px 15px 31px 21px;
+    
+}
+@media screen and (max-width: 768px) {
+    .element__group {
+        max-width: 90%;
+        align-items: center;
+    }
+}
