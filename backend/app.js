@@ -16,7 +16,7 @@ const { PORT = 3000 } = process.env;
 // }));
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  'https://pavelpavlov.nomoredomains.work',
+  'http://pavelpavlov.nomoredomains.work',
 ];
 
 app.use((req, res, next) => {
