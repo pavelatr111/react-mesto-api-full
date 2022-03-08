@@ -90,9 +90,9 @@ class Api {
 
 const api = new Api ({
   url: 'https://api.pavelpavlov.students.nomoredomains.work',
-  headers: {
-    authorization: '61544c3a-773f-4208-9b8d-c1a194add288'
-  }
+  // headers: {
+  //   authorization: '61544c3a-773f-4208-9b8d-c1a194add288'
+  // }
 })
 
 export default api
