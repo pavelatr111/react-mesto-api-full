@@ -3,17 +3,32 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookeiParser = require('cookie-parser');
 const { errors } = require('celebrate');
-const cors = require('cors');
+// const cors = require('cors');
 const auth = require('./middleware/auth');
 const NotFoundError = require('./errors/not-found-error');
 
 const app = express();
 const { PORT = 3000 } = process.env;
 
-app.use(cors({
-  origin: 'https://pavelpavlov.nomoredomains.work',
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: 'https://pavelpavlov.nomoredomains.work',
+//   credentials: true,
+// }));
+// Массив доменов, с которых разрешены кросс-доменные запросы
+const allowedCors = [
+  'https://pavelpavlov.nomoredomains.work',
+];
+
+app.use((req, res, next) => {
+  const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+  // проверяем, что источник запроса есть среди разрешённых
+  if (allowedCors.includes(origin)) {
+    // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
+  next();
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
