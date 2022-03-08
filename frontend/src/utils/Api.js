@@ -62,6 +62,7 @@ class Api {
           ...this._headers,
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({
           name,
           link
