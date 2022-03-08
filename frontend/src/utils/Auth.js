@@ -30,6 +30,7 @@ class Auth {
     login(mail, password) {
         return fetch(`${this._url}/signin`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
