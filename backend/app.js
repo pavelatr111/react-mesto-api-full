@@ -3,11 +3,17 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookeiParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const auth = require('./middleware/auth');
 const NotFoundError = require('./errors/not-found-error');
 
 const app = express();
 const { PORT = 3000 } = process.env;
+
+app.use(cors({
+  origin: 'https://pavelpavlov.nomoredomains.work',
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
