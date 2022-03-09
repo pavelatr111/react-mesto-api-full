@@ -1,3 +1,5 @@
+import { eventNames } from "../../../backend/models/modelsUser";
+
 function response(res){
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res}`);
 }
@@ -88,10 +90,12 @@ class Api {
 
 }
 
+const {JWT_SECRET } = process.env;
+
 const api = new Api ({
   url: 'https://api.pavelpavlov.students.nomoredomains.work',
   headers: {
-    authorization: '61544c3a-773f-4208-9b8d-c1a194add288'
+    authorization: JWT_SECRET
   }
 })
 
