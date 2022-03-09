@@ -62,7 +62,6 @@ class Api {
           ...this._headers,
           'Content-Type': 'application/json'
         },
-        credentials: 'include',
         body: JSON.stringify({
           name,
           link
@@ -90,11 +89,10 @@ class Api {
 }
 
 const api = new Api ({
-  url: 'https://api.pavelpavlov.students.nomoredomains.work',
-  // headers: {
-  //   authorization
-
-  // }
+  url: 'https://mesto.nomoreparties.co/v1/cohort-30',
+  headers: {
+    authorization: '61544c3a-773f-4208-9b8d-c1a194add288'
+  }
 })
 
-export default api 
+export default api
