@@ -45,7 +45,7 @@ class Auth {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${jwt}`
+                "Authorization": `jwt`
             }
         })
         .then(response)
