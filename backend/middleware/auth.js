@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
 const AuthorizationError = require('../errors/authorized-error');
-require('dotenv').config();
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 module.exports = (req, res, next) => {
   // достаём авторизационный заголовок
   const { token } = req.cookies;
+
   // const token = req.cookies.token || req.headers.authorization;
   // убеждаемся, что он есть
   if (!token) {
