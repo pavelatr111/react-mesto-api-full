@@ -46,6 +46,7 @@ function App(props) {
 
 
   React.useEffect(() => {
+    if (loggedIn) {
     api.getCards()
       .then(data => {
         setCards(data)
@@ -53,11 +54,12 @@ function App(props) {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+    }
+  }, [loggedIn])
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
@@ -80,6 +82,7 @@ function App(props) {
   }
   // получаем данные о юзере 
   useEffect(() => {
+    if (loggedIn) {
     api.getUserInfo()
       .then(data => {
         setCurrentUser(data)
@@ -88,7 +91,8 @@ function App(props) {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+    }
+  }, [loggedIn])
 
 
   function handleEditAvatarClick() {
@@ -164,7 +168,7 @@ function App(props) {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            setUserEmail(res.data.email);
+            setUserEmail(res.email);
             setLoggedIn(true);
             props.history.push('/')
           }
@@ -177,7 +181,7 @@ function App(props) {
 
   useEffect(() => {
     handleTokenCheck();
-  }, []);
+  }, [ ]);
 
   function handleLogin() {
     setLoggedIn(true)

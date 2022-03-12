@@ -1,15 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const cookeiParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const auth = require('./middleware/auth');
 const NotFoundError = require('./errors/not-found-error');
+const { requestLogger, errorLogger } = require('./middleware/logger');
 
 const app = express();
 const { PORT = 3000 } = process.env;
 
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -56,6 +59,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(cookeiParser());
 
+app.use(requestLogger);
+
 app.use('/', require('./routes/routesAuth'));
 
 app.use('/users', require('./routes/routesUsers'));
@@ -65,6 +70,8 @@ app.use('/cards', auth, require('./routes/routesCards'));
 app.use('*', auth, (req, res, next) => {
   next(new NotFoundError('Страница по указоному адресу не найдена'));
 });
+
+app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 

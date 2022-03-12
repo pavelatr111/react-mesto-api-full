@@ -22,12 +22,13 @@ function Login(props) {
     e.preventDefault();
 
     auth.login(values.email, values.password).then((res) => {
-      if (res.token) {
+      console.log(res);
+      if (res?.jwt) {
         setValues({
           email: '',
           password: ''
         })
-        localStorage.setItem('jwt', res.token)
+        localStorage.setItem('jwt', res?.jwt)
         props.handleLogin()
         props.history.push('/')
       }

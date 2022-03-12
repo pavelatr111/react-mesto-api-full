@@ -5,8 +5,8 @@ const Card = require('../models/modelsCard');
 
 module.exports.getCards = async (req, res, next) => {
   try {
-    const cards = await Card.find({});
-    res.status(200).send({ data: cards });
+    const cards = await Card.find({}).populate('owner');
+    res.status(200).send(cards);
   } catch (err) {
     next(err);
   }
@@ -45,9 +45,9 @@ module.exports.likeCard = async (req, res, next) => {
       req.params.cardId,
       { $addToSet: { likes: req.user._id } }, // добавить _id в массив, если его там нет
       { new: true },
-    );
+    ).populate('owner');
     if (card) {
-      res.status(200).send({ data: card });
+      res.status(200).send(card);
     } else {
       next(new NotFoundError('Нет пользователя с таким id'));
     }
@@ -66,9 +66,9 @@ module.exports.dislikeCard = async (req, res, next) => {
       req.params.cardId,
       { $pull: { likes: req.user._id } }, // убрать _id из массива
       { new: true },
-    );
+    ).populate('owner');
     if (card) {
-      res.status(200).send({ data: card });
+      res.status(200).send(card);
     } else {
       next(new NotFoundError('Нет пользователя с таким id'));
     }

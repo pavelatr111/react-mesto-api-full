@@ -12,13 +12,16 @@ class Api {
     //делаем запрос на сервер для получения карточек
     getCards(){
         return fetch(`${this._url}/cards`, {
+          credentials: 'include',
                 headers: this._headers,
+                
             })
             .then(response)
     }
     //делаем запрос для получения данных пользователя
     getUserInfo(){
         return fetch(`${this._url}/users/me`, {
+                credentials: 'include',
                 headers: this._headers,
             })
           
@@ -29,6 +32,7 @@ class Api {
     setUserInfo(name, about) {
       return fetch(`${this._url}/users/me`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             ...this._headers,
             'Content-Type': 'application/json'
@@ -44,6 +48,7 @@ class Api {
     avatarEdit(avatar) {
       return fetch(`${this._url}/users/me/avatar`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
           ...this._headers,
           'Content-Type': 'application/json'
@@ -58,6 +63,7 @@ class Api {
     renderNewCard(name, link) {
       return fetch(`${this._url}/cards`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           ...this._headers,
           'Content-Type': 'application/json'
@@ -73,6 +79,7 @@ class Api {
     cardDelete(cardId) {
       return fetch(`${this._url}/cards/${cardId}`, {
         method: 'DELETE',
+        credentials: 'include',
         headers: this._headers
       })
       .then(response)
@@ -81,6 +88,7 @@ class Api {
     changeLikeCardStatus(cardId, isLiked) {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: `${isLiked? 'PUT' : 'DELETE'}`,
+        credentials: 'include',
         headers: this._headers
       })
       .then(response)
@@ -91,8 +99,15 @@ class Api {
 const api = new Api ({
   url: 'https://api.pavelpavlov.students.nomoredomains.work',
   headers: {
-    authorization: '61544c3a-773f-4208-9b8d-c1a194add288'
+    authorization: localStorage.jwt,
   }
 })
+
+// const api = new Api ({
+//   url: 'http://localhost:3000',
+//   headers() {
+//    return {authorization: localStorage.jwt},
+//   }
+// })
 
 export default api

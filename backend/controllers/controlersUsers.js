@@ -23,7 +23,7 @@ module.exports.getUserMe = async (req, res, next) => {
   try {
     const user = await User.findById(req.user._id);
     if (user) {
-      res.status(200).send({ data: user });
+      res.status(200).send(user);
     } else {
       next(new NotFoundError('Нет пользователя с таким id'));
     }
@@ -40,7 +40,7 @@ module.exports.getUserById = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);
     if (user) {
-      res.status(200).send({ data: user });
+      res.status(200).send({ user });
     } else {
       // res.status(errorId).send({ message: 'Пользователь не найден' });
       next(new NotFoundError('Нет пользователя с таким id'));
@@ -76,9 +76,8 @@ module.exports.createUser = (req, res, next) => {
       })
         .then(() => res.status(200)
           .send({
-            data: {
-              name, about, avatar, email,
-            },
+
+            name, about, avatar, email,
           }))
         .catch((err) => {
           if (err.name === 'ValidationError') {
@@ -147,7 +146,7 @@ module.exports.updateUser = async (req, res, next) => {
       { new: true, sctric: true, runValidators: true },
     );
     if (user) {
-      res.status(200).send({ data: user });
+      res.status(200).send(user);
     } else {
       next(new NotFoundError('Нет пользователя с таким id'));
     }
@@ -170,7 +169,7 @@ module.exports.updateAvatar = async (req, res, next) => {
       { new: true },
     );
     if (user) {
-      res.status(200).send({ data: user });
+      res.status(200).send(user);
     } else {
       next(new NotFoundError('Нет пользователя с таким id'));
     }
