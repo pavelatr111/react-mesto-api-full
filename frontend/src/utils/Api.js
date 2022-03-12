@@ -99,7 +99,7 @@ class Api {
 const api = new Api ({
   url: 'https://api.pavelpavlov.students.nomoredomains.work',
   headers: {
-    authorization: localStorage.jwt,
+    authorization: 123,
   }
 })
 
