@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   next();
 // });
 app.use(cors({
-  origin: 'http://pavelpavlov.nomoredomains.work',
+  origin: 'https://pavelpavlov.nomoredomains.work',
   credentials: true,
 }));
 
