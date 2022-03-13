@@ -47,6 +47,8 @@ app.use(express.json());
 
 //   next();
 // });
+app.use(cookeiParser());
+
 app.use(cors({
   origin: 'https://pavelpavlov.nomoredomains.work',
   credentials: true,
@@ -56,8 +58,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-app.use(cookeiParser());
 
 app.use(requestLogger);
 
