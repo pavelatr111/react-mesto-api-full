@@ -49,7 +49,6 @@ class Auth {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": localStorage.jwt,
             }
         })
         .then(response)
