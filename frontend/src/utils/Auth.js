@@ -31,6 +31,7 @@ class Auth {
     login(mail, password) {
         return fetch(`${this._url}/signin`, {
             method: 'POST',
+            mode: 'cors',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,11 +46,12 @@ class Auth {
     checkToken(jwt) {
         return fetch(`${this._url}/users/me`, {
             method: 'GET',
+            mode: 'cors',
             credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "authorization": `${localStorage.getItem("jwt")}`,
+                authorization: localStorage.jwt,
             }
         })
         .then(response)
