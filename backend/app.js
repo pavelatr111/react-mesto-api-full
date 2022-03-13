@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
 const bodyParser = require('body-parser');
 const cookeiParser = require('cookie-parser');
 const { errors } = require('celebrate');
@@ -9,6 +9,7 @@ const auth = require('./middleware/auth');
 const NotFoundError = require('./errors/not-found-error');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 
+console.log(process.env.NODE_ENV);
 const app = express();
 const { PORT = 3000 } = process.env;
 
