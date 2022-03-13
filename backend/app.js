@@ -13,7 +13,7 @@ const app = express();
 const { PORT = 3000 } = process.env;
 
 app.use(express.json());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Массив доменов, с которых разрешены кросс-доменные запросы
