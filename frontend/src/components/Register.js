@@ -24,7 +24,7 @@ function Register(props) {
     e.preventDefault();
     
     auth.register(values.email, values.password).then((res) => {
-      if(res.data.email) {
+      if(res.email) {
         props.tooltipStatus(true);
         props.onTooltip()
         props.history.push('/sign-in')
