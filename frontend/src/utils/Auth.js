@@ -52,7 +52,7 @@ class Auth {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                authorization: jwt,
+                "authorization": jwt,
             }
         })
         .then(response)
