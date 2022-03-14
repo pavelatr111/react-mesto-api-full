@@ -50,7 +50,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookeiParser());
 
 app.use(cors({
-  origin: 'https://pavelpavlov.nomoredomains.work',
+  origin: ['https://pavelpavlov.nomoredomains.work',
+    'http://localhost:3001'],
   credentials: true,
 }));
 
@@ -63,9 +64,11 @@ app.use(requestLogger);
 
 app.use('/', require('./routes/routesAuth'));
 
+app.use(auth);
+
 app.use('/users', require('./routes/routesUsers'));
 
-app.use('/cards', auth, require('./routes/routesCards'));
+app.use('/cards', require('./routes/routesCards'));
 
 app.use('*', auth, (req, res, next) => {
   next(new NotFoundError('Страница по указоному адресу не найдена'));

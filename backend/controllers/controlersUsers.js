@@ -56,27 +56,20 @@ module.exports.getUserById = async (req, res, next) => {
   }
 };
 
-// bcrypt.hash(password, saltRounds)
-//   .then(function(hash) {
-
-//   });
-
 module.exports.createUser = (req, res, next) => {
   const {
     name, about, avatar, email, password,
   } = req.body;
   if (!email || !password) {
     next(new AuthorizationError('Не верный email или пароль'));
-    // return res.status(errorData).send({ message: 'Не верный email или пароль' })
   }
   bcrypt.hash(password, saltRounds)
     .then((hash) => {
       User.create({
         name, about, avatar, email, password: hash,
-      })
+      }).catch(next)
         .then(() => res.status(200)
           .send({
-
             name, about, avatar, email,
           }))
         .catch((err) => {
@@ -90,6 +83,7 @@ module.exports.createUser = (req, res, next) => {
         });
     });
 };
+
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
 
@@ -123,20 +117,6 @@ module.exports.login = (req, res, next) => {
       next(new NotFoundError('Нет пользователя с таким id'));
     });
 };
-
-// module.exports.createUser = async (req, res) => {
-//   try {
-//     const { name, about, avatar, email, password } = req.body;
-//     const createUser = await User.create({ name, about, avatar, email, password });
-//     res.status(201).send(createUser);
-//   } catch (err) {
-//     if (err.name === 'ValidationError') {
-//       res.status(errorData).send({ message: 'Переданы некорректные данные' });
-//     } else {
-//       res.status(errorCode).send({ message: 'Произошла ошибка' });
-//     }
-//   }
-// };
 
 module.exports.updateUser = async (req, res, next) => {
   try {

@@ -8,7 +8,6 @@ function Main(props) {
     //подключаем контекст 
     const userContext = React.useContext(CurrentUserContext)
 
-
     return (
         <main className="content">
             <section className="profile">

@@ -8,8 +8,7 @@ function Card(props) {
   const userContext = React.useContext(CurrentUserContext);
 
   // Определяем, являемся ли мы владельцем текущей карточки
-  const isOwn = props.card.owner === userContext._id;
-
+  const isOwn = props.card.owner._id === userContext._id;
   // Создаём переменную, которую после зададим в `className` для кнопки удаления
   const cardDeleteButtonClassName = (
     `element__trash ${isOwn ? 'element__trash_visible' : 'element__trash_hidden'}`

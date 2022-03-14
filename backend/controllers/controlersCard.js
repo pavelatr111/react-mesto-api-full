@@ -15,13 +15,15 @@ module.exports.getCards = async (req, res, next) => {
 module.exports.createCard = async (req, res, next) => {
   try {
     const { name, link } = req.body;
-    const createCard = await Card.create({ name, link, owner: req.user._id });
+    let createCard = await Card.create({ name, link, owner: req.user._id });
+    createCard = await createCard.populate('owner');
     res.status(201).send(createCard);
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(new DataError('Переданы некорректные данные'));
     } else {
       next(err);
+      console.log(err);
     }
   }
 };
