@@ -9,11 +9,10 @@ const auth = require('./middleware/auth');
 const NotFoundError = require('./errors/not-found-error');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 
-console.log(process.env.NODE_ENV);
 const app = express();
 const { PORT = 3000 } = process.env;
 
-app.use(express.json());
+// app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
