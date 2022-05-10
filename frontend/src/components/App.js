@@ -120,7 +120,7 @@ function App(props) {
   function handleUpdateUser(user) {
     api.setUserInfo(user.name, user.about).then(data => {
       setCurrentUser(data)
-      closeAllPopups()
+
     })
       .catch((err) => {
         console.log(err)

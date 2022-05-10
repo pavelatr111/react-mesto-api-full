@@ -52,7 +52,7 @@ class Auth {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "authorization": jwt,
+                authorization: jwt,
             }
         })
         .then(response)
@@ -60,7 +60,7 @@ class Auth {
 }
 
 const auth = new Auth({
-    url: 'https://api.pavelpavlov.students.nomoredomains.work',
+    url: 'https://pavel.nomoredomains.xyz',
 })
 
 export default auth
