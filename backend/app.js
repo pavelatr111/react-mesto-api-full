@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookeiParser());
 
 app.use(cors({
-  origin: ['https://pavelP.nomoredomains.xyz',
+  origin: ['http://pavelP.nomoredomains.xyz',
     'http://localhost:3001'],
   credentials: true,
 }));

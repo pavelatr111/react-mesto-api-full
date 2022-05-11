@@ -97,7 +97,7 @@ class Api {
 }
 
 const api = new Api ({
-  url: 'https://pavel.nomoredomains.xyz',
+  url: 'http://pavel.nomoredomains.xyz',
   headers: {
     "authorization": localStorage.jwt,
   }
