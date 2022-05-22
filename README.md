@@ -17,7 +17,7 @@
 
 Backend будет доступен по адресу http://localhost:3000, frontend - http://localhost:3001
   
-## [домен фронтенд части] (pavelP.nomoredomains.xyz)
-## домен бэкенд части pavel.nomoredomains.xyz
+## домен фронтенд части https://pavelp.nomoredomains.xyz
+## домен бэкенд части https://pavel.nomoredomains.xyz
 ##публичнй API 51.250.109.116
 
